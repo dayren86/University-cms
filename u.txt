@@ -1,0 +1,9 @@
+Student:
+ - The student can see which group he belongs to
+ - The student can view the lesson schedule that is linked to the group
+ - The student can learn the teacher's name
+
+Teacher:
+ - The teacher can see what lessons he teaches
+ - The teacher can select a day and see what lessons are scheduled
+ - The teacher can find out the time of the lesson and which group
