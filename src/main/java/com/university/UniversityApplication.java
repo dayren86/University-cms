@@ -70,10 +70,12 @@ public class UniversityApplication implements CommandLineRunner {
 		groupService.addStudentToGroup(group, student);
 		groupService.addStudentToGroup(group, student2);
 
+		timetableService.addLesson(timetable, lesson);
+
 		University universityFind = universityRepository.findById(1L).get();
 		universityFind.getStudentSet().forEach(student1 -> System.out.println(student1));
 		universityFind.getTeacherSet().forEach(teacher1 -> System.out.println(teacher1));
-		universityFind.getTimetableSet().forEach(timetable1 -> System.out.println(timetable1));
+		universityFind.getTimetableSet().forEach(timetable1 -> System.out.println(timetable1.getLocalDate()+ "\n" + timetable1.getLessonSet()));
 		universityFind.getLessonSet().forEach(lesson1 -> System.out.println(lesson1));
 		universityFind.getGroupSet().forEach(group1 -> System.out.println(group1.getNameGroup() + "\n" + group1.getStudentSet()));
 

@@ -1,5 +1,6 @@
 package com.university.service;
 
+import com.university.model.Lesson;
 import com.university.model.Timetable;
 import com.university.repository.TimetableRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TimetableService {
     private final TimetableRepository timetableRepository;
+    private final LessonService lessonService;
 
     public void createTimetable(Timetable timetable) {
         timetableRepository.save(timetable);
@@ -40,5 +42,11 @@ public class TimetableService {
 
     public void deleteTimetable(Timetable timetable) {
         timetableRepository.delete(timetable);
+    }
+
+    public void addLesson(Timetable timetable, Lesson lesson) {
+        lesson.setTimetable(timetable);
+
+        lessonService.updateLesson(lesson);
     }
 }

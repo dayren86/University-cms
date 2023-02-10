@@ -77,16 +77,4 @@ public class Timetable {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-
-    @Override
-    public String toString() {
-        return "Timetable{" +
-                "id=" + id +
-                ", localDate=" + localDate +
-                ", lessonSet=" + lessonSet +
-                ", university=" + university +
-                ", student=" + student +
-                ", teacher=" + teacher +
-                '}';
-    }
 }

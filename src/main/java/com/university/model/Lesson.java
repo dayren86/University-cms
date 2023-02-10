@@ -95,18 +95,4 @@ public class Lesson {
     public void setTimetable(Timetable timetable) {
         this.timetable = timetable;
     }
-
-    @Override
-    public String toString() {
-        return "Lesson{" +
-                "id=" + id +
-                ", nameLesson='" + nameLesson + '\'' +
-                ", time=" + time +
-                ", audience=" + audience +
-                ", teacher=" + teacher +
-                ", group=" + group +
-                ", university=" + university +
-                ", timetable=" + timetable +
-                '}';
-    }
 }
