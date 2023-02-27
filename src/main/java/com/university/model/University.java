@@ -20,6 +20,8 @@ public class University {
     @OneToMany(mappedBy = "university", fetch = FetchType.EAGER)
     private Set<Student> studentSet;
 
+
+
     @OneToMany(mappedBy = "university", fetch = FetchType.EAGER)
     private Set<Teacher> teacherSet;
 
@@ -28,6 +30,13 @@ public class University {
 
     @OneToMany(mappedBy = "university", fetch = FetchType.EAGER)
     private Set<Group> groupSet;
+
+    public University(long id) {
+        this.id = id;
+    }
+
+    public University() {
+    }
 
     public long getId() {
         return id;

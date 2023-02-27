@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<h1 align="center">Create Lesson</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="#" th:action="@{/lesson/create}" th:object="${lesson}" method="POST">
+                <div class="mb-3">
+                    <label for="nameLesson">Name</label>
+                    <input type="text" name="nameLesson" class="form-control" id="nameLesson" placeholder="Enter Name">
+                </div>
+                <div class="mb-3">
+                    <label for="timeString">Time</label>
+                    <input type="time" name="timeString" class="form-control" id="timeString" placeholder="Enter time">
+                </div>
+                <div class="mb-3">
+                    <label for="audience">Audience</label>
+                    <input type="text" name="audience" class="form-control" id="audience" placeholder="Enter audience">
+                </div>
+                <div class="mb-3">
+                    <label for="teacher">Teacher</label>
+                    <select class="form-control" id="teacher" name="teacher">
+                        <option selected>Select Teacher</option>
+                        <option th:each="teacher: ${teacherList}"
+                                th:value="${teacher.id}"
+                                th:text="${teacher.nameTeacher}">
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="group">Group</label>
+                    <select class="form-control" id="group" name="group">
+                        <option selected>Select Group</option>
+                        <option th:each="group: ${groupList}"
+                                th:value="${group.id}"
+                                th:text="${group.nameGroup}">
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="timetable">Timetable</label>
+                    <select class="form-control" id="timetable" name="timetable">
+                        <option selected>Select Group</option>
+                        <option th:each="timetable: ${timetableList}"
+                                th:value="${timetable.id}"
+                                th:text="${timetable.localDate}">
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="university">University</label>
+                    <select class="form-control" id="university" name="university">
+                        <option selected>Select University</option>
+                        <option th:each="university: ${universityList}"
+                                th:value="${university.id}"
+                                th:text="${university.nameUniversity}">
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                     <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <a type="button" class="btn btn-primary" href="/lesson">Cancel</a>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>

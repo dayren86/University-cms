@@ -10,7 +10,7 @@
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-<h1 align="center">Student</h1>
+<h1 align="center">Groups</h1>
 <div class="companies" align="center">
     <a type="button" class="btn btn-primary" href="/">Main menu</a>
 </div>
@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <a type="button" class="btn btn-primary" href="/student/createmvc">Add Student</a>
+            <a type="button" class="btn btn-primary" href="/group/createmvc">Add Group</a>
         </div>
     </div>
     <div class="row">
@@ -27,29 +27,29 @@
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Timetable</th>
-                    <th scope="col">Group</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Students</th>
                     <th scope="col">University</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="student: ${studentList}">
-                    <td th:text="${student.id}"></td>
-                    <td th:text="${student.firstName}"></td>
-                    <td th:text="${student.lastName}"></td>
-                    <td th:text="${student.timetableSet}"></td>
-                    <td th:text="${student.group?.nameGroup}"></td>
-                    <td th:text="${student.university?.nameUniversity}"></td>
-                    <td align="right">
-                        <form action="#" th:action="@{'/student/update/' + ${student.id}}" method="GET">
-                            <button type="submit" class="btn btn-primary">Update Student</button>
+                <tr th:each="group: ${groupList}">
+                    <td th:text="${group.id}"></td>
+                    <td th:text="${group.nameGroup}"></td>
+                    <td>
+                        <li class="list-group-item list-group-item-secondary" th:each="student: ${group.studentSet}">
+                            <span th:text="${student.firstName}"></span>
+                        </li>
+                    </td>
+                    <td th:text="${group.university?.nameUniversity}"></td>
+                    <td align='right'>
+                        <form action="#" th:action="@{'/group/update/' + ${group.id}}" method="GET">
+                            <button type="submit" class="btn btn-primary">Update Group</button>
                         </form>
                     </td>
-                    <td align="right">
-                        <form action="#" th:action="@{'/student/delete/' + ${student.id}}" method="POST">
-                            <button type="submit" class="btn btn-primary">Delete Student</button>
+                    <td align='right'>
+                        <form action="#" th:action="@{'/group/delete/' + ${group.id}}" method="POST">
+                            <button type="submit" class="btn btn-primary">Delete Group</button>
                         </form>
                     </td>
                 </tr>

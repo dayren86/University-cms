@@ -10,7 +10,7 @@
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-<h1 align="center">Student</h1>
+<h1 align="center">Timetable</h1>
 <div class="companies" align="center">
     <a type="button" class="btn btn-primary" href="/">Main menu</a>
 </div>
@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <a type="button" class="btn btn-primary" href="/student/createmvc">Add Student</a>
+            <a type="button" class="btn btn-primary" href="/timetable/createmvc">Add Timetable</a>
         </div>
     </div>
     <div class="row">
@@ -27,29 +27,29 @@
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Timetable</th>
-                    <th scope="col">Group</th>
+                    <th scope="col">Local Date</th>
+                    <th scope="col">Lessons</th>
                     <th scope="col">University</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="student: ${studentList}">
-                    <td th:text="${student.id}"></td>
-                    <td th:text="${student.firstName}"></td>
-                    <td th:text="${student.lastName}"></td>
-                    <td th:text="${student.timetableSet}"></td>
-                    <td th:text="${student.group?.nameGroup}"></td>
-                    <td th:text="${student.university?.nameUniversity}"></td>
+                <tr th:each="timetable: ${timetableList}">
+                    <td th:text="${timetable.id}"></td>
+                    <td th:text="${timetable.localDate}"></td>
+                    <td>
+                        <li class="list-group-item list-group-item-secondary" th:each="lesson: ${timetable.lessonSet}">
+                            <span th:text="${lesson.nameLesson}"></span>
+                        </li>
+                    </td>
+                    <td th:text="${timetable.university?.nameUniversity}"></td>
                     <td align="right">
-                        <form action="#" th:action="@{'/student/update/' + ${student.id}}" method="GET">
-                            <button type="submit" class="btn btn-primary">Update Student</button>
+                        <form action="#" th:action="@{'/timetable/update/' + ${timetable.id}}" method="GET">
+                            <button type="submit" class="btn btn-primary">Update Timetable</button>
                         </form>
                     </td>
                     <td align="right">
-                        <form action="#" th:action="@{'/student/delete/' + ${student.id}}" method="POST">
-                            <button type="submit" class="btn btn-primary">Delete Student</button>
+                        <form action="#" th:action="@{'/timetable/delete/' + ${timetable.id}}" method="POST">
+                            <button type="submit" class="btn btn-primary">Delete Timetable</button>
                         </form>
                     </td>
                 </tr>

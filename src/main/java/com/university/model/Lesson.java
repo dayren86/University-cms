@@ -3,6 +3,7 @@ package com.university.model;
 import javax.persistence.*;
 
 import java.sql.Time;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "lesson")
@@ -14,7 +15,7 @@ public class Lesson {
 
     private String nameLesson;
 
-    private Time time;
+    private LocalTime time;
 
     private Integer audience;
 
@@ -48,11 +49,11 @@ public class Lesson {
         this.nameLesson = nameLesson;
     }
 
-    public Time getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 

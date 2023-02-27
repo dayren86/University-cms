@@ -19,16 +19,16 @@ public class Timetable {
     private Set<Lesson> lessonSet;
 
     @ManyToOne
-    @JoinColumn(name = "university_id")
-    private University university;
-
-    @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
 
     public long getId() {
         return id;
