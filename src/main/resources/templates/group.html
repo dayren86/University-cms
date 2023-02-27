@@ -39,6 +39,7 @@
                     <td>
                         <li class="list-group-item list-group-item-secondary" th:each="student: ${group.studentSet}">
                             <span th:text="${student.firstName}"></span>
+                            <span th:text="${student.lastName}"></span>
                         </li>
                     </td>
                     <td th:text="${group.university?.nameUniversity}"></td>

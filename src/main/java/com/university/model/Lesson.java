@@ -2,7 +2,6 @@ package com.university.model;
 
 import javax.persistence.*;
 
-import java.sql.Time;
 import java.time.LocalTime;
 
 @Entity
