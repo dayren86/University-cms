@@ -19,14 +19,6 @@ public class Timetable {
     private Set<Lesson> lessonSet;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
-
-    @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private Teacher teacher;
-
-    @ManyToOne
     @JoinColumn(name = "university_id")
     private University university;
 
@@ -60,21 +52,5 @@ public class Timetable {
 
     public void setUniversity(University university) {
         this.university = university;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
     }
 }

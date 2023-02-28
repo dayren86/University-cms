@@ -15,7 +15,7 @@ public class Teacher {
     private String nameTeacher;
 
     @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
-    private Set<Timetable> timetableSet;
+    private Set<Lesson> lessonSet;
 
     @ManyToOne
     @JoinColumn(name = "university_id")
@@ -37,14 +37,6 @@ public class Teacher {
         this.nameTeacher = nameTeacher;
     }
 
-    public Set<Timetable> getTimetableSet() {
-        return timetableSet;
-    }
-
-    public void setTimetableSet(Set<Timetable> timetableSet) {
-        this.timetableSet = timetableSet;
-    }
-
     public University getUniversity() {
         return university;
     }
@@ -53,13 +45,11 @@ public class Teacher {
         this.university = university;
     }
 
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "id=" + id +
-                ", nameTeacher='" + nameTeacher + '\'' +
-                ", timetableSet=" + timetableSet +
-                ", university=" + university +
-                '}';
+    public Set<Lesson> getLessonSet() {
+        return lessonSet;
+    }
+
+    public void setLessonSet(Set<Lesson> lessonSet) {
+        this.lessonSet = lessonSet;
     }
 }

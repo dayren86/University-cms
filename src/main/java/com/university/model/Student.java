@@ -2,8 +2,6 @@ package com.university.model;
 
 import javax.persistence.*;
 
-import java.util.Set;
-
 @Entity
 @Table(name = "student")
 public class Student {
@@ -21,9 +19,6 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "university_id")
     private University university;
-
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
-    private Set<Timetable> timetableSet;
 
     @ManyToOne
     @JoinColumn(name = "groups_id")
@@ -61,14 +56,6 @@ public class Student {
         this.university = university;
     }
 
-    public Set<Timetable> getTimetableSet() {
-        return timetableSet;
-    }
-
-    public void setTimetableSet(Set<Timetable> timetableSet) {
-        this.timetableSet = timetableSet;
-    }
-
     public Group getGroup() {
         return group;
     }
@@ -76,16 +63,4 @@ public class Student {
     public void setGroup(Group group) {
         this.group = group;
     }
-//
-//    @Override
-//    public String toString() {
-//        return "Student{" +
-//                "id=" + id +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", university=" + university.getNameUniversity() +
-//                ", timetableSet=" + timetableSet +
-//                ", group=" + group.getId() + " " + group.getNameGroup() +
-//                '}';
-//    }
 }

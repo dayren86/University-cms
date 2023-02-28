@@ -30,7 +30,7 @@
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Group</th>
-                    <th scope="col">Timetable</th>
+<!--                    <th scope="col">Timetable</th>-->
                     <th scope="col">University</th>
                 </tr>
                 </thead>
@@ -40,7 +40,7 @@
                     <td th:text="${student.firstName}"></td>
                     <td th:text="${student.lastName}"></td>
                     <td th:text="${student.group?.nameGroup}"></td>
-                    <td th:text="${student.timetableSet}"></td>
+<!--                    <td th:text="${student.timetableSet}"></td>-->
                     <td th:text="${student.university?.nameUniversity}"></td>
                     <td align="right">
                         <form action="#" th:action="@{'/student/update/' + ${student.id}}" method="GET">

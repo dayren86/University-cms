@@ -30,12 +30,8 @@ CREATE TABLE teacher(
 CREATE TABLE timetable(
     id BIGSERIAL PRIMARY KEY,
     local_date DATE,
-    student_id BIGINT,
-    teacher_id BIGINT,
     university_id BIGINT,
-    FOREIGN KEY (university_id) REFERENCES university(id) ON DELETE CASCADE,
-    FOREIGN KEY (student_id) REFERENCES student(id) ON DELETE CASCADE,
-    FOREIGN KEY (teacher_id) REFERENCES teacher(id) ON DELETE CASCADE
+    FOREIGN KEY (university_id) REFERENCES university(id) ON DELETE CASCADE
 );
 
 CREATE TABLE lesson(

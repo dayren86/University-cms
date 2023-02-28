@@ -36,7 +36,12 @@
                 <tr th:each="teacher: ${teacherList}">
                     <td th:text="${teacher.id}"></td>
                     <td th:text="${teacher.nameTeacher}"></td>
-                    <td th:text="${teacher.timetableSet}"></td>
+                    <td>
+                        <li class="list-group-item list-group-item-secondary" th:each="lesson: ${teacher.lessonSet}">
+                            <span th:text="${lesson.nameLesson}"></span>
+                            <span th:text="${lesson.timetable.localDate}">Lesson</span>
+                        </li>
+                    </td>
                     <td th:text="${teacher.university?.nameUniversity}"></td>
                     <td align='right'>
                         <form action="#" th:action="@{'/teacher/update/' + ${teacher.id}}" method="GET">
