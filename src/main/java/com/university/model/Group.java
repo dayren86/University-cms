@@ -17,6 +17,9 @@ public class Group {
     @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
     private Set<Student> studentSet;
 
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
+    private Set<Lesson> lessonSet;
+
     @ManyToOne
     @JoinColumn(name = "university_id")
     private University university;
@@ -51,5 +54,13 @@ public class Group {
 
     public void setUniversity(University university) {
         this.university = university;
+    }
+
+    public Set<Lesson> getLessonSet() {
+        return lessonSet;
+    }
+
+    public void setLessonSet(Set<Lesson> lessonSet) {
+        this.lessonSet = lessonSet;
     }
 }

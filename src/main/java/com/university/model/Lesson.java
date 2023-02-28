@@ -22,7 +22,8 @@ public class Lesson {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "group_id")
     private Group group;
 
     @ManyToOne
