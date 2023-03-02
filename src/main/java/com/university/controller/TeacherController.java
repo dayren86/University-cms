@@ -25,7 +25,7 @@ public class TeacherController {
         return teacherModelAndView;
     }
 
-    @GetMapping("/createmvc")
+    @GetMapping("/template")
     public ModelAndView createTeacherMvc() {
         ModelAndView teacherCreateMVC = new ModelAndView("teachercreate");
         teacherCreateMVC.addObject("universityList", universityService.findAllTimetable());
@@ -33,21 +33,21 @@ public class TeacherController {
         return teacherCreateMVC;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public String createTeacher(@ModelAttribute("teacher") Teacher teacher) {
         teacherService.createTeacher(teacher);
 
         return "redirect:/teacher";
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/{id}")
     public String deleteTeacher(@PathVariable("id") long id) {
         teacherService.deleteTeacher(teacherService.findTeacherById(id));
 
         return "redirect:/teacher";
     }
 
-    @GetMapping("update/{id}")
+    @GetMapping("/changetemplate/{id}")
     public ModelAndView updateTeacherMVC(@PathVariable("id") long id) {
         Teacher teacherById = teacherService.findTeacherById(id);
 

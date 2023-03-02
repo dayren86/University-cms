@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <a type="button" class="btn btn-primary" href="/university/createmvc">Add University</a>
+            <a type="button" class="btn btn-primary" href="/university/template">Add University</a>
         </div>
     </div>
     <div class="row">
@@ -44,23 +44,6 @@
                         <td th:text="${university.teacherSet.size}"></td>
                         <td th:text="${university.lessonSet.size}"></td>
                         <td th:text="${university.groupSet.size}"></td>
-<!--                        <td align="right">-->
-<!--                            <div  class="d-inline-flex p-2">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col">-->
-<!--                                        <form action="#" th:action="@{'/university/update/' + ${university.id}}" method="GET">-->
-<!--                                            <button type="submit" class="btn btn-primary">Update University</button>-->
-<!--                                        </form>-->
-<!--                                    </div>-->
-<!--                                    <div class="col">-->
-<!--                                        <form action="#" th:action="@{'/university/delete/' + ${university.id}}" method="POST">-->
-<!--                                            <button type="submit" class="btn btn-primary">Delete University</button>-->
-<!--                                        </form>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                        </td>-->
                     </tr>
                 </tbody>
             </table>

@@ -24,7 +24,7 @@ public class GroupController {
         return groupModelAndView;
     }
 
-    @GetMapping("/createmvc")
+    @GetMapping("/template")
     public ModelAndView createGroupMVC() {
         ModelAndView groupMVC = new ModelAndView("groupcreate");
         groupMVC.addObject("universityList", universityService.findAllTimetable());
@@ -32,21 +32,21 @@ public class GroupController {
         return groupMVC;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public String createGroup(@ModelAttribute(name = "group") Group group) {
         groupService.createGroup(group);
 
         return "redirect:/group";
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/{id}")
     public String deleteGroup(@PathVariable("id") long id) {
         groupService.deleteGroup(groupService.findGroupById(id));
 
         return "redirect:/group";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/changetemplate/{id}")
     public ModelAndView updateGroupMVC(@PathVariable("id") long id) {
         Group groupById = groupService.findGroupById(id);
 

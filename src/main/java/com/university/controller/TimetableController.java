@@ -26,7 +26,7 @@ public class TimetableController {
         return timetableModelAndView;
     }
 
-    @GetMapping("/createmvc")
+    @GetMapping("/template")
     public ModelAndView timetableCreateMVC() {
         ModelAndView timetableCreate = new ModelAndView("timetablecreate");
         timetableCreate.addObject("universityList", universityService.findAllTimetable());
@@ -34,7 +34,7 @@ public class TimetableController {
         return timetableCreate;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public String timetableCreate(@ModelAttribute("timetable") Timetable timetable, @RequestParam(name = "dateString") String date) {
         LocalDate parseDate = LocalDate.parse(date);
         timetable.setLocalDate(parseDate);
@@ -44,7 +44,7 @@ public class TimetableController {
         return "redirect:/timetable";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/changetemplate/{id}")
     public ModelAndView timetableUpdateMVC(@PathVariable("id") long id) {
         Timetable timetableById = timetableService.findTimetableById(id);
 
@@ -57,7 +57,7 @@ public class TimetableController {
         return timetableUpdateMVC;
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/{id}")
     public String timetableDelete(@PathVariable("id") long id) {
         timetableService.deleteTimetable(timetableService.findTimetableById(id));
 

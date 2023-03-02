@@ -28,7 +28,7 @@ public class LessonController {
         return lessonModelAndView;
     }
 
-    @GetMapping("/createmvc")
+    @GetMapping("/template")
     public ModelAndView lessonCreateMVC() {
         ModelAndView lessonModelAndView = new ModelAndView("lessoncreate");
         lessonModelAndView.addObject("teacherList", teacherService.findAllTeacher());
@@ -39,7 +39,7 @@ public class LessonController {
         return lessonModelAndView;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public String createGroup(@ModelAttribute(name = "lesson") Lesson lesson, @RequestParam(name = "timeString") String time) {
         LocalTime parseTime = LocalTime.parse(time);
 
@@ -50,14 +50,14 @@ public class LessonController {
         return "redirect:/lesson";
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/{id}")
     public String deleteLesson(@PathVariable("id") long id) {
         lessonService.deleteLesson(lessonService.findLessonById(id));
 
         return "redirect:/lesson";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/changetemplate/{id}")
     public ModelAndView updateLessonMVC(@PathVariable("id") long id) {
         Lesson lessonById = lessonService.findLessonById(id);
 

@@ -26,7 +26,7 @@ public class StudentController {
         return studentModelAndView;
     }
 
-    @GetMapping("/createmvc")
+    @GetMapping("/template")
     public ModelAndView createStudentMVC() {
         ModelAndView studentModelAndView = new ModelAndView("studentcreate");
         studentModelAndView.addObject("universityList", universityService.findAllTimetable());
@@ -35,21 +35,21 @@ public class StudentController {
         return studentModelAndView;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public String createStudent(@ModelAttribute(name = "student") Student student) {
         studentService.createStudent(student);
 
         return "redirect:/student";
     }
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/{id}")
     public String deleteStudent(@PathVariable("id") long id) {
         studentService.deleteStudent(studentService.findStudentById(id));
 
         return "redirect:/student";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/changetemplate/{id}")
     public ModelAndView updateStudentMVC(@PathVariable("id") long id) {
         Student studentById = studentService.findStudentById(id);
 

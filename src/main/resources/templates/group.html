@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <a type="button" class="btn btn-primary" href="/group/createmvc">Add Group</a>
+            <a type="button" class="btn btn-primary" href="/group/template">Add Group</a>
         </div>
     </div>
     <div class="row">
@@ -44,12 +44,12 @@
                     </td>
                     <td th:text="${group.university?.nameUniversity}"></td>
                     <td align='right'>
-                        <form action="#" th:action="@{'/group/update/' + ${group.id}}" method="GET">
+                        <form action="#" th:action="@{'/group/changetemplate/' + ${group.id}}" method="GET">
                             <button type="submit" class="btn btn-primary">Update Group</button>
                         </form>
                     </td>
                     <td align='right'>
-                        <form action="#" th:action="@{'/group/delete/' + ${group.id}}" method="POST">
+                        <form action="#" th:action="@{'/group/' + ${group.id}}" th:method="POST">
                             <button type="submit" class="btn btn-primary">Delete Group</button>
                         </form>
                     </td>

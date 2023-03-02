@@ -18,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <a type="button" class="btn btn-primary" href="/lesson/createmvc">Add Lesson</a>
+            <a type="button" class="btn btn-primary" href="/lesson/template">Add Lesson</a>
         </div>
     </div>
     <div class="row">
@@ -47,12 +47,12 @@
                     <td th:text="${lesson.timetable?.localDate}"></td>
                     <td th:text="${lesson.university?.nameUniversity}"></td>
                     <td align="right">
-                        <form action="#" th:action="@{'/lesson/update/' + ${lesson.id}}" method="GET">
+                        <form action="#" th:action="@{'/lesson/changetemplate/' + ${lesson.id}}" method="GET">
                             <button type="submit" class="btn btn-primary">Update Lesson</button>
                         </form>
                     </td>
                     <td align="right">
-                        <form action="#" th:action="@{'/lesson/delete/' + ${lesson.id}}" method="POST">
+                        <form action="#" th:action="@{'/lesson/' + ${lesson.id}}" method="POST">
                             <button type="submit" class="btn btn-primary">Delete Lesson</button>
                         </form>
                     </td>

@@ -25,12 +25,12 @@ public class UniversityController {
         return universityModelAndView;
     }
 
-    @GetMapping("/createmvc")
+    @GetMapping("/template")
     public ModelAndView UniversityCreateMVC() {
         return new ModelAndView("universitycreate");
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public String universityCreate(@ModelAttribute("university") University university) {
         universityService.createUniversity(university);
 
