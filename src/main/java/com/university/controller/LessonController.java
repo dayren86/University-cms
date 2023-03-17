@@ -40,7 +40,7 @@ public class LessonController {
     }
 
     @PostMapping()
-    public String createGroup(@ModelAttribute(name = "lesson") Lesson lesson, @RequestParam(name = "timeString") String time) {
+    public String createLesson(@ModelAttribute(name = "lesson") Lesson lesson, @RequestParam(name = "timeString") String time) {
         LocalTime parseTime = LocalTime.parse(time);
 
         lesson.setTime(parseTime);
