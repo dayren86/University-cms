@@ -9,15 +9,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
+
 @RequiredArgsConstructor
 @RequestMapping("/student")
 @Controller
+@RolesAllowed({"ADMIN"})
 public class StudentController {
 
     private final StudentService studentService;
     private final UniversityService universityService;
     private final GroupService groupService;
 
+    @RolesAllowed({"ADMIN", "STUDENT", "TEACHER"})
     @GetMapping
     public ModelAndView student() {
         ModelAndView studentModelAndView = new ModelAndView("student");

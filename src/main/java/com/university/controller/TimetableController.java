@@ -8,11 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
 import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @RequestMapping("/timetable")
 @Controller
+@RolesAllowed({"ADMIN", "TEACHER"})
 public class TimetableController {
 
     private final TimetableService timetableService;

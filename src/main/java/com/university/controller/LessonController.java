@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
 import java.time.LocalTime;
 
 @RequiredArgsConstructor
 @RequestMapping("/lesson")
 @Controller
+@RolesAllowed({"ADMIN", "TEACHER"})
 public class LessonController {
 
     private final LessonService lessonService;
@@ -21,6 +23,7 @@ public class LessonController {
     private final UniversityService universityService;
 
     @GetMapping
+    @RolesAllowed({"TEACHER", "ADMIN", "STUDENT"})
     public ModelAndView lesson() {
         ModelAndView lessonModelAndView = new ModelAndView("lesson");
         lessonModelAndView.addObject("lessonList", lessonService.findAllLesson());

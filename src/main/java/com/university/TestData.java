@@ -102,4 +102,15 @@ public class TestData {
 
         return timetableList;
     }
+
+    public List<Roles> generateRoles() {
+        return List.of(new Roles("ADMIN"), new Roles("STUDENT"), new Roles("TEACHER"));
+    }
+
+    public List<Users> generateUsers() {
+        return List.of(new Users("admin@gmail.com", "admin", "Admin user", new Roles(1)),
+                new Users("student@gmail.com", "student", "Student user", new Roles(2)),
+                new Users("teacher@gmail.com", "teacher", "Teacher user", new Roles(3))
+                );
+    }
 }
