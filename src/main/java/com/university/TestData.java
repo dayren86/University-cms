@@ -1,6 +1,7 @@
 package com.university;
 
 import com.university.model.*;
+import com.university.security.Roles;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -103,14 +104,10 @@ public class TestData {
         return timetableList;
     }
 
-    public List<Roles> generateRoles() {
-        return List.of(new Roles("ADMIN"), new Roles("STUDENT"), new Roles("TEACHER"));
-    }
-
     public List<Users> generateUsers() {
-        return List.of(new Users("admin@gmail.com", "admin", "Admin user", new Roles(1)),
-                new Users("student@gmail.com", "student", "Student user", new Roles(2)),
-                new Users("teacher@gmail.com", "teacher", "Teacher user", new Roles(3))
+        return List.of(new Users("admin@gmail.com", "admin", "Admin user", Roles.ADMIN),
+                new Users("student@gmail.com", "student", "Student user", Roles.STUDENT),
+                new Users("teacher@gmail.com", "teacher", "Teacher user", Roles.TEACHER)
                 );
     }
 }

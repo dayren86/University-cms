@@ -62,8 +62,6 @@ public class UniversityApplication implements CommandLineRunner {
 			lessonService.updateLesson(lesson);
 		}
 
-		roleService.createRoleFromList(testData.generateRoles());
 		userService.createUserFromList(testData.generateUsers());
-
 	}
 }

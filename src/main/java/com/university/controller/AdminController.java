@@ -2,6 +2,7 @@ package com.university.controller;
 
 import com.university.model.Group;
 import com.university.model.Users;
+import com.university.security.Roles;
 import com.university.service.RoleService;
 import com.university.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,7 @@ public class AdminController {
         userMVC.addObject("userId", userById.getId());
         userMVC.addObject("userEmail", userById.getEmail());
         userMVC.addObject("userName", userById.getUserName());
-        userMVC.addObject("rolesList", roleService.findAllRoles());
+        userMVC.addObject("rolesValues", Roles.values());
 
         return userMVC;
     }

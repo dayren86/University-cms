@@ -31,10 +31,9 @@
                 <div class="mb-3">
                     <select class="form-control" id="roles" name="roles">
                         <option selected>Select Roles</option>
-                        <option th:each="roles: ${rolesList}"
-                                th:value="${roles.id}"
-                                th:text="${roles.rolesName}"
-                                th:selected="roles.rolesName">
+                        <option th:each="roles: ${rolesValues}"
+                                th:value="${roles}"
+                                th:text="${roles}">
                         </option>
                     </select>
                 </div>

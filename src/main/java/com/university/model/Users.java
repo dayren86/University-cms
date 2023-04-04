@@ -1,5 +1,6 @@
 package com.university.model;
 
+import com.university.security.Roles;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -18,8 +19,7 @@ public class Users {
 
     private String userName;
 
-    @ManyToOne
-    @JoinColumn(name = "roles_id")
+    @Enumerated(EnumType.STRING)
     private Roles roles;
 
     public Users(String email, String password, String userName, Roles roles) {
