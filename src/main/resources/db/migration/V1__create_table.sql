@@ -49,3 +49,11 @@ CREATE TABLE lesson(
     FOREIGN KEY (timetable_id) REFERENCES timetable(id) ON DELETE CASCADE
 );
 
+CREATE TABLE users (
+	id BIGSERIAL PRIMARY KEY,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	password VARCHAR(100),
+	user_name VARCHAR(100),
+	roles VARCHAR(100)
+);
+

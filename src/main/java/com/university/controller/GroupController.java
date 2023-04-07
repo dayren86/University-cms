@@ -8,15 +8,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
+
 @RequiredArgsConstructor
 @RequestMapping("/group")
 @Controller
+@RolesAllowed({"ADMIN"})
 public class GroupController {
 
     private final GroupService groupService;
     private final UniversityService universityService;
 
     @GetMapping
+    @RolesAllowed({"TEACHER", "ADMIN"})
     public ModelAndView group() {
         ModelAndView groupModelAndView = new ModelAndView("group");
         groupModelAndView.addObject("groupList", groupService.findAllGroup());
